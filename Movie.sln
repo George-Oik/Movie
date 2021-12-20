@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie", "Movie\Movie.csproj", "{A3F89830-C84C-4008-B9B7-1FD10DA380C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Core", "Movie.Core\Movie.Core.csproj", "{BAAD6A01-89FE-45AB-9009-DEB189F058A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.Web", "Movie.Web\Movie.Web.csproj", "{B448E94C-F0D0-4077-9D50-A4898BEDAA7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3F89830-C84C-4008-B9B7-1FD10DA380C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F89830-C84C-4008-B9B7-1FD10DA380C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F89830-C84C-4008-B9B7-1FD10DA380C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F89830-C84C-4008-B9B7-1FD10DA380C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAD6A01-89FE-45AB-9009-DEB189F058A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAD6A01-89FE-45AB-9009-DEB189F058A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAD6A01-89FE-45AB-9009-DEB189F058A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAD6A01-89FE-45AB-9009-DEB189F058A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B448E94C-F0D0-4077-9D50-A4898BEDAA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B448E94C-F0D0-4077-9D50-A4898BEDAA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B448E94C-F0D0-4077-9D50-A4898BEDAA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B448E94C-F0D0-4077-9D50-A4898BEDAA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE5D3BC3-0AA5-414E-9118-2FC7F6788DF3}
+	EndGlobalSection
+EndGlobal

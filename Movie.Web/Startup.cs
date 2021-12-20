@@ -1,9 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Movie.Core.Data;
+using Movie.Core.Service;
+using Movie.Core.Service.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +27,22 @@ namespace Movie.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string ConnectionString =
+            "Server = localhost; " +
+            "Database = Movie; " +
+            "User Id =sa; " +
+            "Password =admin!@#123;";
+
+            services.AddDbContext<MovieDbContext>(options =>
+                options.UseSqlServer(ConnectionString));
+
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IActorService, ActorService>();
+            services.AddScoped<IImageService, ImageService>();
+
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             services.AddControllersWithViews();
         }
 

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Core.Service.Interface
+namespace Movie.Core.Service.Options.Search
 {
-    public class IImageService
+    public class SearchMovieOptions
     {
-
+        public string Name { get; set; }
     }
 }

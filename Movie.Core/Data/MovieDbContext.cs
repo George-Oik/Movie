@@ -45,6 +45,10 @@ namespace Movie.Core.Data
             modelBuilder
                 .Entity<MovieActor>()
                 .ToTable("MovieActor");
+
+            modelBuilder
+                .Entity<MovieActor>()
+                .HasKey(op => new { op.MovieId, op.ActorId });
         }
     }
 }

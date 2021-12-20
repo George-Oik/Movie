@@ -1,21 +1,15 @@
-﻿using System;
+﻿using Movie.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Core.Model
+namespace Movie.Core.Service.Options.Update
 {
-    public class Movie
+    public class UpdateMovieOptions
     {
-        public Movie()
-        {
-            Cast = new List<MovieActor>();
-            Images = new List<Image>();
-        }
-
-        public int MovieId { get; set; }
-        public string Name { get; set; }
+        public int? MovieId { get; set; }
         public string Plot { get; set; }
         public string ReleaseDate { get; set; }
         public List<MovieActor> Cast { get; set; }

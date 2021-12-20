@@ -10,5 +10,6 @@ namespace Movie.Core.Model
     {
         public int ImageId { get; set; }
         public string Title { get; set; }
+        public string Link { get; set; }
     }
 }

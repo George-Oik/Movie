@@ -38,7 +38,7 @@ namespace Movie.Web
 
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IActorService, ActorService>();
-            services.AddScoped<IImageService, ImageService>();
+            //services.AddScoped<IImageService, ImageService>();
 
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

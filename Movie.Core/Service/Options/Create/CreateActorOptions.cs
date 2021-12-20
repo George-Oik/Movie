@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie.Core.Model
+namespace Movie.Core.Service.Options.Create
 {
-    public class Actor
+    public class CreateActorOptions
     {
-        public int ActorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string BioLink { get; set; }

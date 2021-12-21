@@ -1,8 +1,33 @@
-﻿@{
+﻿@using Movie.Core.Model
+@model List<Movie>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h3 class="trendingH project-header">(Featured)</h3>
+
+@foreach (var movie in Model)
+{
+    <div class="row">
+        <div class="col-md-6 how-img">
+            <img src="@movie.Poster" class="rounded-circle img-fluid" style="width: 400px; height: 400px;" alt="" />
+        </div>
+        <div class="col-md-6">
+            <h4>@movie.Name</h4>
+            <h4 class="subheading" style="font-weight: normal;">@movie.Genre</h4>
+            <h4 class="subheading" style="font-weight: normal;">@movie.ReleaseDate</h4>
+            <p class="text-muted" style="font-weight: normal;">
+                @movie.Plot.Substring(0, 300)...
+            </p>
+            <a type="button" href="@Url.Action("MoviePage", "Movie", new { id = movie.MovieId })" class="btn btn-outline-info">
+                See more
+            </a>
+            <a type="button" href="@Url.Action("Remove", "Movie", new { id = movie.MovieId })" class="btn btn-outline-danger" >
+                Remove
+            </a>
+        </div>
+    </div>
+
+    <br />
+}

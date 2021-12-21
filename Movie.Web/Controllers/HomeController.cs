@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Movie.Core.Service.Interface;
+using Movie.Core.Service.Options.Search;
 using Movie.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -12,15 +14,19 @@ namespace Movie.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IMovieService movieService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMovieService movieService_)
         {
             _logger = logger;
+            movieService = movieService_;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Movie.Core.Model.Movie> featured = movieService.SearchMovie(new SearchMovieOptions { Name=""}).ToList();
+
+            return View(featured);
         }
 
         public IActionResult Privacy()

@@ -88,7 +88,7 @@ namespace Movie.Core.Service
                     {
                         var movieactor = new MovieActor()
                         {
-                            Actor = mActor.Actor,
+                            Actor= Actor,
                             Role = mActor.Role
                         };
 
@@ -222,13 +222,22 @@ namespace Movie.Core.Service
             }
 
             return context.Set<Model.Movie>()
-                    .Where(x => x.MovieId == id);
+                    .Where(x => x.MovieId == id)
+                        .Include(z => z.Images)
+                            .Include(y=>y.Cast)
+                                .ThenInclude(o=>o.Actor)
+                                    .AsQueryable();
         }
 
         public IQueryable<Model.Movie> SearchMovie(SearchMovieOptions options)
         {
+            if (string.IsNullOrWhiteSpace(options.Name))
+            {
+                return context.Set<Model.Movie>().AsQueryable();
+            }
+
             return context.Set<Model.Movie>()
-                    .Where(x => x.Name.Contains(options.Name));
+                    .Where(x => x.Name.Contains(options.Name)).AsQueryable();
         }
 
         public Result<Model.Movie> UpdateMovie(UpdateMovieOptions options)

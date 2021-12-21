@@ -1,5 +1,67 @@
-﻿@*
+﻿@using Movie.Core.Model
+@model Movie
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="@Model.Trailer" allowfullscreen></iframe>
+</div>
+
+<br />
+
+<div class="row">
+    <h4>@Model.Name</h4>
+</div>
+<br />
+<div class="row">
+    <h4 style="font-weight: normal;">(@Model.Genre)</h4>
+</div>
+<br />
+<div class="row">
+    <h4 style="font-weight: normal;">Released: @Model.ReleaseDate</h4>
+</div>
+
+<br />
+
+<div class="row">
+    <h4 style="font-weight: normal;">@Model.Plot</h4>
+</div>
+
+<br />
+<br />
+<br />
+
+<h3>
+    Cast:
+</h3>
+@{
+    foreach (var cast in Model.Cast)
+    {
+        <div class="row">
+            <img src="@cast.Actor.Profile" class="rounded-circle img-fluid" style="width: 200px; height: 200px;" alt="" />
+            <h4>@cast.Actor.FirstName @cast.Actor.LastName as : </h4>
+            <br />
+            <h4 class="subheading"> @cast.Role </h4>
+        </div>
+    }
+}
+
+<br />
+<br />
+<br />
+
+<h3>
+    (More images)
+</h3>
+<div class="row"
+    <div class="carousel-caption">
+        @{
+            foreach (var pic in Model.Images)
+            {
+                <img src="@pic.Link" class="rounded-circle img-fluid" style="width: 300px; height: 300px;" alt="" />
+            }
+        }
+    </div>
+</div>

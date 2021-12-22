@@ -5,7 +5,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h3 class="trendingH project-header">(Featured)</h3>
+<h3 class="trendingH project-header">(Featured today)</h3>
 
 @foreach (var movie in Model)
 {
@@ -18,7 +18,7 @@
             <h4 class="subheading" style="font-weight: normal;">@movie.Genre</h4>
             <h4 class="subheading" style="font-weight: normal;">@movie.ReleaseDate</h4>
             <p class="text-muted" style="font-weight: normal;">
-                @movie.Plot.Substring(0, 300)...
+                @movie.Plot.Substring(0, 300)... @*Should be changed for accuracy in every length.*@
             </p>
             <a type="button" href="@Url.Action("MoviePage", "Movie", new { id = movie.MovieId })" class="btn btn-outline-info">
                 See more
@@ -28,6 +28,4 @@
             </a>
         </div>
     </div>
-
-    <br />
 }

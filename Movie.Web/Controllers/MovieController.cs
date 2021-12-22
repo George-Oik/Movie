@@ -19,12 +19,21 @@ namespace Movie.Web.Controllers
             movieService = movieService_;
         }
 
+        /// <summary>
+        /// Takes user to a form to input the movie's info.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("index")]
         public IActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Takes the submited form's info and returns the result from the CreateMovie method.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         [HttpPost("submit")]
         public IActionResult Submit([FromBody]CreateMovieOptions options)
         {
@@ -39,6 +48,11 @@ namespace Movie.Web.Controllers
             return Json(result.Data);
         }
 
+        /// <summary>
+        /// Removes a movie from database. Implemented as Get and not Delete because of the simplicity of the request. Will be re-written.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("remove/{id}")]
         public LocalRedirectResult Remove(int id)
         {
@@ -47,6 +61,11 @@ namespace Movie.Web.Controllers
             return LocalRedirect("/Home/Index");
         }
 
+        /// <summary>
+        /// Get's a movie by its Id on user click, with all info, and takes him to the movie page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("moviePage/{id}")]
         public IActionResult MoviePage(int id)
         {

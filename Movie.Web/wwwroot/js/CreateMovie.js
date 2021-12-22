@@ -1,4 +1,9 @@
-﻿let movieCreateButton = $('#js-create-submitmovie');
+﻿/////////////////////////////////////////////////////////////////////////////////
+///The input number of images and actors has to be dynamic and customizable.
+/////////////////////////////////////////////////////////////////////////////////
+
+let movieCreateButton = $('#js-create-submitmovie');
+
 movieCreateButton.on('click', () => {
     let name = $('#js-create-moviename');
     let releaseDate = $('#js-create-releasedate');
@@ -8,12 +13,15 @@ movieCreateButton.on('click', () => {
     let trailer = $('#js-create-trailer');
 
     var images = [];
+
+    //image links.
     let im1 = $('#js-create-image1');
     let im2 = $('#js-create-image2');
     let im3 = $('#js-create-image3');
     let im4 = $('#js-create-image4');
     let im5 = $('#js-create-image5');
 
+    //image captions.
     let title1 = $('#js-create-title1');
     let title2 = $('#js-create-title2');
     let title3 = $('#js-create-title3');
@@ -56,16 +64,19 @@ movieCreateButton.on('click', () => {
         images.push(image5);
     }
 
-    let cast = [];
+    let cast = [];//Cast will be an array with an that contains an object (Actor) and his a string (his role).
 
+    //Cast first name.
     let fn1 = $('#js-a1-firstname');
     let fn2 = $('#js-a2-firstname');
     let fn3 = $('#js-a3-firstname');
 
+    //Cast last name.
     let ln1 = $('#js-a1-lastname');
     let ln2 = $('#js-a2-lastname');
     let ln3 = $('#js-a3-lastname');
 
+    //Cast's role in specific movie.
     let role1 = $('#js-a1-role');
     let role2 = $('#js-a2-role');
     let role3 = $('#js-a3-role');
@@ -123,6 +134,8 @@ movieCreateButton.on('click', () => {
         data: JSON.stringify(data),
         dataType: 'json'
     }).done(_project => {
+
+        //no success or failure response implemented yet.
 
         var url = "/Home/Index/";
         window.location.href = url;

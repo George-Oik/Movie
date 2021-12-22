@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Movie.Core.Response
 {
+    /// <summary>
+    /// Returns the same status as the request responses for coherence.
+    /// </summary>
     public enum StatusCode
     {
         OK = 200,

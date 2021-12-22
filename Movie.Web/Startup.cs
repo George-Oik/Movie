@@ -27,6 +27,8 @@ namespace Movie.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //This is to create dependency on the library and get all connection initiating without contacting the database.
+
             string ConnectionString =
             "Server = localhost; " +
             "Database = Movie; " +
@@ -38,7 +40,7 @@ namespace Movie.Web
 
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IActorService, ActorService>();
-            //services.AddScoped<IImageService, ImageService>();
+            //services.AddScoped<IImageService, ImageService>(); //to be implemented
 
             services.AddControllers().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

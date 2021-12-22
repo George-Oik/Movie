@@ -20,6 +20,11 @@ namespace Movie.Core.Service
             context = dbcontext;
         }
 
+        /// <summary>
+        /// Create a new actor from user input. Only way to store actors for the time being.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public Result<Actor> CreateActor(CreateActorOptions options)
         {
             if (options == null)

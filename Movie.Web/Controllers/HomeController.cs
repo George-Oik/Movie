@@ -22,6 +22,10 @@ namespace Movie.Web.Controllers
             movieService = movieService_;
         }
 
+        /// <summary>
+        /// List of all movies in the database for now, along with few main info.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             List<Movie.Core.Model.Movie> featured = movieService.SearchMovie(new SearchMovieOptions { Name=""}).ToList();

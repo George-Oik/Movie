@@ -11,6 +11,11 @@ namespace Movie.Core.Service.Interface
 {
     public interface IActorService
     {
+        /// <summary>
+        /// Create a new actor from user input. Only way to store actors for the time being.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         Result<Actor> CreateActor(CreateActorOptions options);
     }
 }

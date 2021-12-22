@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Movie.Core.Response
 {
+    /// <summary>
+    /// To handle reporting the results the same way everywhere.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class Result<T>
     {
         public T Data { get; set; }

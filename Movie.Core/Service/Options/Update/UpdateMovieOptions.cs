@@ -9,7 +9,7 @@ namespace Movie.Core.Service.Options.Update
 {
     public class UpdateMovieOptions
     {
-        public int? MovieId { get; set; }
+        public int? MovieId { get; set; } //This is not updated, it is only to search for the movie.
         public string Plot { get; set; }
         public string ReleaseDate { get; set; }
         public List<MovieActor> Cast { get; set; }

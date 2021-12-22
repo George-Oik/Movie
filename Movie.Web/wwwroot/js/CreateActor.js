@@ -21,6 +21,8 @@ actorCreateButton.on('click', () => {
         dataType: 'json'
     }).done(_project => {
 
+        //no success or failure response implemented yet.
+
         var url = "/Home/Index/";
         window.location.href = url;
 

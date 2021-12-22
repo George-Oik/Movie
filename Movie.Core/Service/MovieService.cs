@@ -24,6 +24,11 @@ namespace Movie.Core.Service
             context = dbcontext;
         }
 
+        /// <summary>
+        /// Create movie from user input. Also store the images' and videos' URLs. Only store actors info if he exists in database.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public Result<Model.Movie> CreateMovie(CreateMovieOptions options)
         {
             if (options == null)
@@ -61,13 +66,14 @@ namespace Movie.Core.Service
 
             if (string.IsNullOrWhiteSpace(options.ReleaseDate))
             {
-                movie.ReleaseDate = "N/A";
+                movie.ReleaseDate = "TBA";
             }
             else
             {
                 movie.ReleaseDate = options.ReleaseDate;
             }
 
+            //Actors are searched for in the database, and added in the list only if found. Else nothing is added.
             if (options.Cast != null && options.Cast.Count > 0)
             {
                 foreach (MovieActor mActor in options.Cast)
@@ -106,6 +112,7 @@ namespace Movie.Core.Service
                 movie.Poster = options.Poster;
             }
 
+            //The images that are not null are created and added to the list.
             if (options.Images != null && options.Images.Count > 0)
             {
                 foreach (var pic in options.Images)
@@ -163,6 +170,11 @@ namespace Movie.Core.Service
             return Result<Model.Movie>.ActionSuccessful(movie);
         }
 
+        /// <summary>
+        /// Remove a movie from the database, along with its images and MovieActor relation.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Result<Model.Movie> DeleteMovie(int? id)
         {
             if (id == null || id == 0)
@@ -214,6 +226,11 @@ namespace Movie.Core.Service
             return Result<Model.Movie>.ActionSuccessful(movie);
         }
 
+        /// <summary>
+        /// Get movie by its database Id and include all info from the related tables.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IQueryable<Model.Movie> GetById(int? id)
         {
             if (id == null || id == 0)
@@ -229,6 +246,11 @@ namespace Movie.Core.Service
                                     .AsQueryable();
         }
 
+        /// <summary>
+        /// Search only by name for now, or search all movies if empty name. 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public IQueryable<Model.Movie> SearchMovie(SearchMovieOptions options)
         {
             if (string.IsNullOrWhiteSpace(options.Name))
@@ -240,6 +262,11 @@ namespace Movie.Core.Service
                     .Where(x => x.Name.Contains(options.Name)).AsQueryable();
         }
 
+        /// <summary>
+        /// Update movie from user's given info. Not yet implemented in front end.
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public Result<Model.Movie> UpdateMovie(UpdateMovieOptions options)
         {
             if (options==null || options.MovieId == null || options.MovieId == 0)

@@ -28,4 +28,6 @@ FUTURE WORK:
 
 -. The implementation for updating a movie's info is not done yet, but updating services exists in the back end and also the logic behind an Update request is very similar to the Post one shown in Javascript.
 
+-. A dynamic carousel for projecting images is needed in the front end.
+
 -. A project for unit testing is not implemented yet.
